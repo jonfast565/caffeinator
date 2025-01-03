@@ -1,0 +1,134 @@
+object SettingsForm: TSettingsForm
+  Left = 543
+  Height = 219
+  Top = 407
+  Width = 519
+  BorderIcons = [biSystemMenu]
+  Caption = 'Caffeinator'
+  ClientHeight = 219
+  ClientWidth = 519
+  DesignTimePPI = 144
+  Menu = MainMenu
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  object StartButton: TButton
+    Left = 24
+    Height = 43
+    Top = 152
+    Width = 144
+    Caption = 'Start'
+    TabOrder = 0
+    OnClick = StartButtonClick
+  end
+  object StopButton: TButton
+    Left = 176
+    Height = 43
+    Top = 152
+    Width = 143
+    Caption = 'Stop'
+    TabOrder = 1
+    OnClick = StopButtonClick
+  end
+  object MouseMoveFrequency: TSpinEdit
+    Left = 168
+    Height = 33
+    Top = 28
+    Width = 162
+    TabOrder = 2
+    OnChange = MoveMouseMsChange
+  end
+  object KeyboardKeyPressFrequency: TSpinEdit
+    Left = 168
+    Height = 33
+    Top = 92
+    Width = 162
+    TabOrder = 3
+    OnChange = KeyboardKeyPressFrequencyChange
+  end
+  object MoveMouseCheckbox: TCheckBox
+    Left = 24
+    Height = 29
+    Top = 32
+    Width = 137
+    Caption = 'Move Mouse?'
+    TabOrder = 4
+    OnChange = MoveMouseCheckboxChange
+  end
+  object KeyboardKeyCheckbox: TCheckBox
+    Left = 24
+    Height = 29
+    Top = 96
+    Width = 107
+    Caption = 'Press Key?'
+    TabOrder = 5
+    OnChange = KeyboardKeyCheckboxChange
+  end
+  object MoveMouseMsLabel: TLabel
+    Left = 344
+    Height = 25
+    Top = 32
+    Width = 24
+    Caption = 'ms'
+  end
+  object KeyboardKeyPressMsLabel: TLabel
+    Left = 344
+    Height = 25
+    Top = 96
+    Width = 24
+    Caption = 'ms'
+  end
+  object MouseMovePixels: TSpinEdit
+    Left = 384
+    Height = 33
+    Top = 28
+    Width = 111
+    TabOrder = 6
+    OnChange = MouseMovePixelsChange
+  end
+  object KeyboardKey: TEdit
+    Left = 384
+    Height = 33
+    Top = 92
+    Width = 111
+    TabOrder = 7
+    Text = 'KeyboardKey'
+    OnChange = KeyboardKeyChange
+  end
+  object MainMenu: TMainMenu
+    Left = 136
+    Top = 336
+    object FileMenu: TMenuItem
+      Caption = 'File'
+      object AboutItem: TMenuItem
+        Caption = 'About'
+        OnClick = AboutItemClick
+      end
+      object ExitItem: TMenuItem
+        Caption = 'Exit'
+        OnClick = ExitItemClick
+      end
+    end
+  end
+  object TrayIcon: TTrayIcon
+    OnClick = TrayIconClick
+    Left = 24
+    Top = 336
+  end
+  object TrayMenu: TPopupMenu
+    Left = 192
+    Top = 336
+    object ShowMenuItem: TMenuItem
+      Caption = 'Show Caffeinator'
+      OnClick = ShowMenuItemClick
+    end
+    object StartMenuItem: TMenuItem
+      Caption = 'Start'
+      OnClick = StartMenuItemClick
+    end
+    object StopMenuItem: TMenuItem
+      Caption = 'Stop'
+      OnClick = StopMenuItemClick
+    end
+  end
+end

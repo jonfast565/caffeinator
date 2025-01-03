@@ -1,0 +1,57 @@
+object AboutForm: TAboutForm
+  Left = 585
+  Height = 651
+  Top = 250
+  Width = 438
+  BorderIcons = []
+  Caption = 'About'
+  ClientHeight = 651
+  ClientWidth = 438
+  DesignTimePPI = 144
+  OnCreate = FormCreate
+  object Logo: TImage
+    Left = 16
+    Height = 400
+    Top = 16
+    Width = 400
+  end
+  object CloseButton: TButton
+    Left = 294
+    Height = 43
+    Top = 588
+    Width = 122
+    Caption = 'Close'
+    TabOrder = 0
+    OnClick = CloseButtonClick
+  end
+  object AppNameLabel: TLabel
+    Left = 16
+    Height = 41
+    Top = 472
+    Width = 145
+    Caption = 'Caffeinator'
+    Font.Height = -30
+    ParentFont = False
+  end
+  object AuthorLabel: TLabel
+    Left = 16
+    Height = 25
+    Top = 532
+    Width = 107
+    Caption = 'Jonathan Fast'
+  end
+  object YearLabel: TLabel
+    Left = 18
+    Height = 25
+    Top = 568
+    Width = 40
+    Caption = '2025'
+  end
+  object LicenseLabel: TLabel
+    Left = 18
+    Height = 25
+    Top = 606
+    Width = 172
+    Caption = 'GPL-3 License Applies'
+  end
+end
