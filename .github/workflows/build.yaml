@@ -30,3 +30,10 @@ jobs:
       - name: Build the Main Application (macOS)
         if: ${{ matrix.operating-system == 'macos-latest' }}
         run: lazbuild -B --ws=cocoa "caffeinator.lpi"
+      - name: Upload binary artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: caffeinator-binary
+          path: |
+            ./caffeinator.exe
+            ./caffeinator
