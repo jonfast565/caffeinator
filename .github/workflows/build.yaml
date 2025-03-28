@@ -30,10 +30,12 @@ jobs:
       - name: Build the Main Application (macOS)
         if: ${{ matrix.operating-system == 'macos-latest' }}
         run: lazbuild -B --ws=cocoa "caffeinator.lpi"
-      - name: Upload binary artifact
-        uses: actions/upload-artifact@v3
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
         with:
-          name: caffeinator-binary
-          path: |
-            ./caffeinator.exe
-            ./caffeinator
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: caffeinator.exe
+          asset_name: caffeinator binary
+          tag: ${{ github.ref }}
+          overwrite: true
+          body: "This is the latest release of Caffeinator. Enjoy!"
