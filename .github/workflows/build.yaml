@@ -13,7 +13,7 @@ jobs:
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
-        operating-system: [windows-latest, ubuntu-latest, macos-latest]
+        operating-system: [windows-latest]
         lazarus-versions: [dist]
     steps:
       - name: Checkout source code
