@@ -34,7 +34,11 @@ jobs:
         if: ${{ matrix.operating-system == 'macos-latest' }}
         run: lazbuild -B --ws=cocoa "caffeinator.lpi"
       - name: Get short commit SHA
-        run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
+        shell: bash
+        run: |
+          echo "SHORT_SHA=${GITHUB_SHA:0:7}" >> $GITHUB_ENV
+      - name: Debug Show SHORT_SHA
+        run: echo "SHORT_SHA is $SHORT_SHA"
       - name: Upload caffeinator.exe with short SHA
         uses: svenstaro/upload-release-action@v2
         with:
