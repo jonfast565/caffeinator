@@ -40,7 +40,7 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: caffeinator.exe
-          asset_name: caffeinator-.exe
-          tag: caffeinator-release-v.${{ env.SHORT_SHA }}
+          asset_name: caffeinator.exe
+          tag: caffeinator-release-${{ env.SHORT_SHA }}
           overwrite: true
           body: "Release for commit ${{ env.SHORT_SHA }}"
