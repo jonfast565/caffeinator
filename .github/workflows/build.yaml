@@ -33,12 +33,14 @@ jobs:
       - name: Build the Main Application (macOS)
         if: ${{ matrix.operating-system == 'macos-latest' }}
         run: lazbuild -B --ws=cocoa "caffeinator.lpi"
-      - name: Upload binaries to release
+      - name: Get short commit SHA
+        run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
+      - name: Upload caffeinator.exe with short SHA
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: caffeinator.exe
-          asset_name: caffeinator binary
-          tag: ${{ github.ref }}
+          asset_name: caffeinator-.exe
+          tag: caffeinator-release-v.${{ env.SHORT_SHA }}
           overwrite: true
-          body: "This is the latest release of Caffeinator. Enjoy!"
+          body: "Release for commit ${{ env.SHORT_SHA }}"
